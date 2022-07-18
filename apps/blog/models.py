@@ -33,7 +33,12 @@ class Article(models.Model):
         verbose_name_plural = 'Статьи'
 
 
-# class Tag(models.Model):
-#      name = models.CharField(verbose_name='Тэги', max_length=255)
-#     def __str__(self):
-#         return self.name
+class Tag(models.Model):
+    name = models.CharField(verbose_name='Тэги', max_length=255)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Тэг'
+        verbose_name_plural = 'Тэги'
