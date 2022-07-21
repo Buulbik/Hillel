@@ -35,7 +35,7 @@ class Article(models.Model):
     text = models.TextField(verbose_name='Текст')
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата редактирования', auto_now=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, verbose_name="Тэги")
 
     def __str__(self):
         return self.title
