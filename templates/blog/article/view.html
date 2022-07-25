@@ -1,0 +1,13 @@
+<h1>{{ article.title }}</h1>
+<p>{{ article.text }}</p>
+<p>
+    {% for tag in article.tags.all %}
+        <a href="#">#{{ tag.name }}</a>
+    {% endfor %}
+
+</p>
+<hr>
+<p>
+    <b>Дата</b>: {{ article.created_at }} <br>
+    <b>Категория</b>: {{ category.name }} <br>
+</p>

@@ -1,1 +1,4 @@
 <h1>Категории</h1>
+{% for category in categories %}
+    <h4><a href="{% url 'article_list' category_id=category.id %}">{{ category }}</a></h4>
+{% endfor %}
