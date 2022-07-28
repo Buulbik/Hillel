@@ -1,4 +1,4 @@
 <h1>Статьи по тэгам</h1>
-{% for category in categories %}
-    <h4><a href="{% url 'tag_list' tag_id=articles.id %}">{{ articles }}</a></h4>
+{% for article in articles %}
+    <h4><a href="{% url 'article_view' article_id=article.id category_id=article.category.id %}">{{ article.title }}</a></h4>
 {% endfor %}
