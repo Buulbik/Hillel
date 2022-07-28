@@ -2,7 +2,7 @@
 <p>{{ article.text }}</p>
 <p>
     {% for tag in article.tags.all %}
-        <a href="#">#{{ tag.name }}</a>
+        <a href="{% url 'tag_list' tag_id=tag.id %}">#{{ tag.name }}</a>
     {% endfor %}
 
 </p>
