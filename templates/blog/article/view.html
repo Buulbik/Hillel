@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>{{ article.title }}</h1>
+    {% if article.image %}
+        <img class="img-thumbnail" src="{{ article.image.url }}" alt="">
+    {% endif %}
     <p>{{ article.text }}</p>
     <p>
         {% for tag in article.tags.all %}
