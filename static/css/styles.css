@@ -4,3 +4,22 @@
 body{
     background: cornflowerblue;
 }
+.blog-item{
+    margin-bottom: 30px;
+}
+.blog-item h4{
+    text-align: center;
+}
+.blog-item h4 a{
+    text-decoration: none;
+}
+.blog-item img, .blog-item h4 a{
+    transition: all .15s linear;
+}
+.blog-item:hover img{
+    transform: scale(1.03, 1.03);
+}
+.blog-item:hover h4 a{
+    top: 3px;
+    color: darkred;
+}
