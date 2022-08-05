@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Статьи по тэгам</h1>
+    <h1>Статті за тегами</h1>
     {% for article in articles %}
         <h4>
             <a href="{% url 'article_view' article_id=article.id category_id=article.category.id %}">{{ article.title }}</a>
