@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.blog.models import Article, BlogCategory, Tag
+from apps.blog.models import Article, BlogCategory, Tag, User
 from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.http import urlencode
@@ -26,9 +26,9 @@ class BlogCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'image_tag_thumbnail', 'category_link', 'tag_link', 'created_at']
+    list_display = ['id', 'title', 'image_tag_thumbnail', 'user', 'image_tag_thumbnail', 'category_link', 'tag_link', 'created_at']
     list_display_links = ['id', 'title', 'image_tag_thumbnail']
-    fields = ['category', 'image_tag', 'image', 'tags', 'title', 'text_preview', 'text']
+    fields = ['category', 'image_tag', 'user', 'image', 'tags', 'title', 'text_preview', 'text']
     readonly_fields = ['image_tag']
     list_filter = ['category', 'tags']
 
