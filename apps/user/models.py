@@ -20,7 +20,7 @@ class User(AbstractUser):
     )
     image_thumbnail = ImageSpecField(
         source='image',
-        processors=[ResizeToFill(200, 200)],
+        processors=[ResizeToFill(50, 50)],
         format='JPEG',
         options={'quality': 100}
     )
@@ -29,7 +29,7 @@ class User(AbstractUser):
         if self.image:
             if not self.image_thumbnail:
                 User.objects.get(id=self.id)
-            return mark_safe(f"<img src='/{MEDIA_ROOT}{self.image_thumbnail}' width='70'>")
+            return mark_safe(f"<img src='/{MEDIA_ROOT}{self.image_thumbnail}' width='50'>")
 
     image_tag_thumbnail.short_description = 'Текущее изображение'
     image_tag_thumbnail.allow_tags = True
