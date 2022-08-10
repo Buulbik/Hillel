@@ -26,7 +26,7 @@ class BlogCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'image_tag_thumbnail', 'user', 'image_tag_thumbnail', 'category_link', 'tag_link', 'created_at']
+    list_display = ['id', 'title', 'user', 'image_tag_thumbnail', 'category_link', 'tag_link', 'created_at']
     list_display_links = ['id', 'title', 'image_tag_thumbnail']
     fields = ['category', 'image_tag', 'user', 'image', 'tags', 'title', 'text_preview', 'text']
     readonly_fields = ['image_tag']
