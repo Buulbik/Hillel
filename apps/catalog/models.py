@@ -57,3 +57,15 @@ class Category(MPTTModel):
     def get_absolute_url(self):
         return reverse('category', args=[self.slug])
 
+
+class Product(models.Model):
+    name = models.CharField(verbose_name='Название', max_length=255)
+    description = models.TextField(verbose_name='Описание', blank=True, null=True)
+    quantity = models.BigIntegerField(verbose_name='Количество', null=True)
+    price = models.DecimalField(verbose_name='Цена', max_digits=12, decimal_places=2, default=0)
+    created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Дата редактирования', auto_now=True)
+
+    class Meta:
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
