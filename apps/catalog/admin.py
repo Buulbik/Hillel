@@ -11,4 +11,4 @@ class CategoryAdmin(admin.ModelAdmin):
 class Product(admin.ModelAdmin):
     list_display = ['id', 'name', 'quantity', 'price']
     list_display_links = ['id', 'name']
-    fields = ['name', 'quantity', 'price']
+    fields = ['name', 'description',  'quantity', 'price']
