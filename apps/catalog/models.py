@@ -76,14 +76,18 @@ class Image(models.Model):
 
     def image_tag_thumbnail(self):
         if self.image:
-            return mark_safe(f"<img src='/{MEDIA_ROOT}{self.image}' width='70'>")
+            if not self.image_thumbnail:
+                Image.objects.get(id=self.id)
+            return mark_safe(f"<img src='/{MEDIA_ROOT}{self.image_thumbnail}' width='70'>")
 
     image_tag_thumbnail.short_description = 'Текущее изображение товара'
     image_tag_thumbnail.allow_tags = True
 
     def image_tag(self):
         if self.image:
-            return mark_safe(f"<img src='/{MEDIA_ROOT}{self.image}'>")
+            if not self.image_thumbnail:
+                Image.objects.get(id=self.id)
+            return mark_safe(f"<img src='/{MEDIA_ROOT}{self.image_thumbnail}'>")
 
     image_tag.short_description = 'Текущее изображение товара'
     image_tag.allow_tags = True
