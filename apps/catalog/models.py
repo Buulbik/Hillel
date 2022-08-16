@@ -110,7 +110,7 @@ class Product(models.Model):
     images = models.ManyToManyField(
         to=Image,
         verbose_name='Категории',
-        trough='ProductImage',
+        through='ProductImage',
         related_name='images',
         blank=True
     )
