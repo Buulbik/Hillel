@@ -1,0 +1,22 @@
+{% load static %}
+<div>
+    <h3 class="my-header">{{ category.name }}</h3>
+    <div class="row">
+        {% for item in object_list %}
+            <div class="col-sm-12 col-md-4">
+                <div class="product">
+                    <a href="{{ item.get_absolute_url }}">
+                        {% if item.main_image %}
+                            <img src="{{ item.main_image.image_thumbnail.url }}" alt="">
+                        {% else %}
+                            <img src="{% static 'no-image.png' %}" alt="">
+                        {% endif %} 
+                        <b class="text-danger product-price">{{ item.price }} грн.</b>
+                        <p class="product-name">{{ item.name }}</p>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

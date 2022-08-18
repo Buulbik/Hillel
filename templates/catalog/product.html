@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="product-view">
+        <h3 class="my-header">Название товара</h3>
+        <div class="row">
+
+            <div class="col-xs-12 col-md-6">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" class="product-image"
+                           data-lightbox="roadtrip">
+                            <img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" alt=""
+                                 class="img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" class="product-image"
+                           data-lightbox="roadtrip">
+                            <img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" alt=""
+                                 class="img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" class="product-image"
+                           data-lightbox="roadtrip">
+                            <img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" alt=""
+                                 class="img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" class="product-image"
+                           data-lightbox="roadtrip">
+                            <img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" alt=""
+                                 class="img-thumbnail">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+                <p>Наличие: <b class="text-success">В наличии</b></p>
+                <b class="text-danger product-price">100 грн.</b>
+                <form action="">
+                    <div class="input-group mb-3">
+                        <input type="number" min="1" step="1" max="100" value="1" class="form-control">
+                        <button class="btn btn-success" type="button" id="button-addon1">Купить</button>
+                    </div>
+                </form>
+                <br>
+                <h4 class="text-center">Описание</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, ipsa repudiandae! Consequatur ipsa nam
+                    obcaecati porro qui quod repellendus. Eius, expedita illo illum iusto maiores obcaecati odit
+                    perferendis placeat quos?</p>
+            </div>
+
+        </div>
+        <script>
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true
+            })
+        </script>
+    </div>
+{% endblock %}
