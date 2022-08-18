@@ -1,64 +1,13 @@
-{% extends 'base.html' %}
-{% load mptt_tags %}
-
+{% extends "base.html" %}
 {% block content %}
-    <div class="row">
-        <div class="col-3">
-            <div id="left-menu">
-                <h4>Категории</h4>
-                <div id="left-menu-container">
-                    <ul class="menu-start">
-                        {% recursetree categories %}
-                            <li>
-                                <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
-                                {% if not node.is_leaf_node %}
-                                    <ul class="children">
-                                        {{ children }}
-                                    </ul>
-                                {% endif %}
-                            </li>
-                        {% endrecursetree %}
-                    </ul>
-                </div>
+    <div class="catalog">
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                {% include "catalog/_category_tree.html" %}
             </div>
-        </div>
-        <div class="col-9">
-<section>
-    <div class="container">
-        <h1>{{ category.name }} items</h1>
-        <p>{{ category.description }}</p>
-    </div>
-</section>
-
-<div>
-    {% for item in object_list %}
-        <div>
-                <p>{{ item.name }}</p>
-        </div>
-    {% endfor %}
-
-    {% if is_paginated %}
-        <div class="pagination">
-		<span class="step-links">
-			{% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-            {% endif %}
-
-            <span class="current">
-				Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-			</span>
-
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-		</span>
-        </div>
-    {% endif %}
-
-</div>
-
+            <div class="col-sm-12 col-md-9">
+                {% include "catalog/_products.html" %}
+            </div>
         </div>
     </div>
 {% endblock %}

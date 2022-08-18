@@ -1,3 +1,4 @@
+from django.contrib.admin import display
 from django.db import models
 from django.utils.safestring import mark_safe
 from imagekit.models import ProcessedImageField, ImageSpecField
@@ -61,7 +62,7 @@ class Category(MPTTModel):
 class Image(models.Model):
     image = ProcessedImageField(
         verbose_name='Изображение',
-        upload_to='catalog/',
+        upload_to='catalog/product',
         processors=[],
         format='JPEG',
         options={'quality': 100},
@@ -73,24 +74,25 @@ class Image(models.Model):
         format='JPEG',
         options={'quality': 100}
     )
+    product = models.ForeignKey(to='Product', verbose_name='Товар', on_delete=models.CASCADE)
+    is_main = models.BooleanField(verbose_name='Основное изображение', default=False)
 
+    @display(description='Текущее изображение')
     def image_tag_thumbnail(self):
         if self.image:
             if not self.image_thumbnail:
                 Image.objects.get(id=self.id)
             return mark_safe(f"<img src='/{MEDIA_ROOT}{self.image_thumbnail}' width='70'>")
 
-    image_tag_thumbnail.short_description = 'Текущее изображение товара'
-    image_tag_thumbnail.allow_tags = True
-
+    @display(description='Текущее изображение')
     def image_tag(self):
         if self.image:
             if not self.image_thumbnail:
                 Image.objects.get(id=self.id)
             return mark_safe(f"<img src='/{MEDIA_ROOT}{self.image_thumbnail}'>")
 
-    image_tag.short_description = 'Текущее изображение товара'
-    image_tag.allow_tags = True
+    def __str__(self):
+        return ''
 
 
 class Product(models.Model):
@@ -107,13 +109,15 @@ class Product(models.Model):
         related_name='categories',
         blank=True
     )
-    images = models.ManyToManyField(
-        to=Image,
-        verbose_name='Категории',
-        through='ProductImage',
-        related_name='images',
-        blank=True
-    )
+
+    def images(self):
+        return Image.objects.filter(product=self.id)
+
+    def main_image(self):
+        image = Image.objects.filter(is_main=True, product=self.id).first()
+        if image:
+            return image
+        return self.images().first()
 
     class Meta:
         ordering = ['-created_at']
@@ -122,6 +126,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('product', kwargs={'pk':self.id})
 
 
 class ProductCategory(models.Model):
@@ -142,19 +149,4 @@ class ProductCategory(models.Model):
         verbose_name_plural = 'Категории товара'
 
 
-class ProductImage(models.Model):
-    product = models.ForeignKey(to=Product, verbose_name='Товар', on_delete=models.CASCADE)
-    image = models.ForeignKey(to=Image, verbose_name='Изображение', on_delete=models.CASCADE)
-    is_main = models.BooleanField(verbose_name='Основное изображение', default=False)
 
-    def __str__(self):
-        return ''
-
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        if self.is_main:
-            ProductImage.objects.filter(product=self.product).update(is_main=False)
-        super(ProductImage, self).save(force_insert, force_update, using, update_fields)
-
-    class Meta:
-        verbose_name = 'Изображение товара'
-        verbose_name_plural = 'Изображения товара'

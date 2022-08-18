@@ -23,3 +23,41 @@ body{
     top: 3px;
     color: darkred;
 }
+.my-header{
+    padding: 15px 0;
+}
+
+.product{
+    box-shadow: 0 0 4px #ccc;
+    transition: all .15s linear;
+}
+
+.product > a{
+    display: block;
+    text-decoration: none;
+}
+.product img{
+    width: 100%;
+}
+.product .product-name{
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    padding: 0 15px 15px;
+}
+.product-price{
+    text-align: center;
+    display: block;
+    padding: 15px;
+    font-size: 30px;
+}
+.product:hover{
+    transform: scale(1.03, 1.03);
+}
+.product:hover .product-name{
+    color: darkred;
+}
+.product-image{
+    display: block;
+    margin: 0 0 15px;
+}
