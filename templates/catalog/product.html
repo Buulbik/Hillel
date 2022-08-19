@@ -1,34 +1,36 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    {% for item in object_list %}
         <div class="product-view">
-        <h3 class="my-header">{{ item.name }}</h3>
+        <h3 class="my-header">{{ product.name }}</h3>
         <div class="row">
+
 
         <div class="col-xs-12 col-md-6">
             <div class="row">
                 <div class="col-6">
-                    <a href="{{ item.get_absolute_url }}" class="product-image"
+                {% for item in product.images %}
+                    <a href="{{ item.image.url }}" class="product-image"
                        data-lightbox="roadtrip">
-                        {% if item.images %}
-                            <img src="{{ item.images.image.url }}" alt=""
+                        {% if item.image %}
+                            <img src="{{ item.image_thumbnail.url }}" alt=""
                                  class="img-thumbnail">
                         {% else %}
                             <img src="{% static 'no-image.png' %}" alt="">
                         {% endif %}
+                {% endfor %}
                     </a>
                 </div>
             </div>
         </div>
 
         <div class="col-xs-12 col-md-6">
-            {% if item.quantity > 1 %}
+            {% if product.quantity >= 1 %}
                 <p>Наличие: <b class="text-success">В наличии</b></p>
             {% else %}
                 <p>Наличие: <b class="text-success">Нет в наличии</b></p>
             {% endif %}
-            <b class="text-danger product-price">{{ item.price }} грн.</b>
+            <b class="text-danger product-price">{{ product.price }} грн.</b>
             <form action="">
                 <div class="input-group mb-3">
                     <input type="number" min="1" step="1" max="100" value="1" class="form-control">
@@ -37,9 +39,9 @@
             </form>
             <br>
             <h4 class="text-center">Описание</h4>
-            <p>{{ item.discription }}</p>
+            <p>{{ product.description }}</p>
         </div>
-    {% endfor %}
+
 
 </div>
 <script>
