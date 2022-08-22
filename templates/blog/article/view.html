@@ -20,8 +20,8 @@
             {% if user.image %}
                 <img class="img-thumbnail" src="{{ article.user.image_thumbnail.url }}" alt="">
             {% endif %}
-            <b>{{ user.first_name }}</b>
-            <b>{{ user.last_name }}</b> <br>
+            <b>{{ user.first_name }} {{ user.last_name }}</b>
+            <br>
         {% endif %}
         <b>Дата</b>: {{ article.created_at }} <br>
         <b>Категорія</b>: {{ category.name }} <br>
