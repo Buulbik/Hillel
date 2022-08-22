@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block meta_tags %}
+    {% include '_meta_tags.html' with meta_title='Каталог' %}
+{% endblock %}
 {% block content %}
     <h1>Категорії</h1>
     <div class="row">
