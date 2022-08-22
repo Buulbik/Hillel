@@ -4,7 +4,9 @@
     {% if article.image %}
         <img class="img-thumbnail" src="{{ article.image.url }}" alt="">
     {% endif %}
-    <p>{{ article.text }}</p>
+    <br>
+    <br>
+    <pre>{{ article.text }}</pre>
     <p>
         {% for tag in article.tags.all %}
             <a href="{% url 'tag_list' tag_id=tag.id %}">#{{ tag.name }}</a>
