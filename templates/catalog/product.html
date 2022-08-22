@@ -1,54 +1,61 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-        <div class="product-view">
+    <div class="product-view">
         <h3 class="my-header">{{ product.name }}</h3>
         <div class="row">
 
 
-        <div class="col-xs-12 col-md-6">
-            <div class="row">
-                <div class="col-6">
-                {% for item in product.images %}
-                    <a href="{{ item.image.url }}" class="product-image"
-                       data-lightbox="roadtrip">
-                        {% if item.image %}
-                            <img src="{{ item.image_thumbnail.url }}" alt=""
-                                 class="img-thumbnail">
-                        {% else %}
-                            <img src="{% static 'no-image.png' %}" alt="">
-                        {% endif %}
-                {% endfor %}
-                    </a>
+            <div class="col-xs-12 col-md-6">
+                <div class="row">
+                    <div class="col-6">
+                        {% for item in product.images %}
+                            <a href="{{ item.image.url }}" class="product-image"
+                               data-lightbox="roadtrip">
+                            {% if item.image %}
+                                <img src="{{ item.image_thumbnail.url }}" alt=""
+                                     class="img-thumbnail">
+                            {% else %}
+                                <img src="{% static 'no-image.png' %}" alt="">
+                            {% endif %}
+                        {% endfor %}
+                        </a>
+                    </div>
                 </div>
             </div>
+
+            <div class="col-xs-12 col-md-6">
+                <p>Наличие:
+                    {% if product.quantity %}
+                        {% if product.quantity >= 5 %}
+                            <b class="text-success">В наличии</b>
+                        {% else %}
+                            <b class="text-warning">Заканчивается</b>
+                        {% endif %}
+                    {% else %}
+                        <b class="text-danger">Нет наличии</b>
+                    {% endif %}
+                </p>
+
+                <b class="text-danger product-price">{{ product.price }} грн.</b>
+                <form action="">
+                    <div class="input-group mb-3">
+                        <input type="number" min="1" step="1" max="100" value="1" class="form-control">
+                        <button class="btn btn-success" type="button" id="button-addon1">Купить</button>
+                    </div>
+                </form>
+                <br>
+                <h4 class="text-center">Описание</h4>
+                <p>{{ product.description }}</p>
+            </div>
+
+
         </div>
-
-        <div class="col-xs-12 col-md-6">
-            {% if product.quantity >= 1 %}
-                <p>Наличие: <b class="text-success">В наличии</b></p>
-            {% else %}
-                <p>Наличие: <b class="text-success">Нет в наличии</b></p>
-            {% endif %}
-            <b class="text-danger product-price">{{ product.price }} грн.</b>
-            <form action="">
-                <div class="input-group mb-3">
-                    <input type="number" min="1" step="1" max="100" value="1" class="form-control">
-                    <button class="btn btn-success" type="button" id="button-addon1">Купить</button>
-                </div>
-            </form>
-            <br>
-            <h4 class="text-center">Описание</h4>
-            <p>{{ product.description }}</p>
-        </div>
-
-
-</div>
-<script>
-    lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true
-    })
-</script>
-</div>
+        <script>
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true
+            })
+        </script>
+    </div>
 {% endblock %}
