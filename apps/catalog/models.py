@@ -5,10 +5,12 @@ from imagekit.models import ProcessedImageField, ImageSpecField
 from mptt.models import MPTTModel, TreeForeignKey
 from pilkit.processors import ResizeToFill
 from django.urls import reverse
+
+from apps.main.mixins import MetaTagMixin
 from config.settings import MEDIA_ROOT
 
 
-class Category(MPTTModel):
+class Category(MPTTModel, MetaTagMixin):
     name = models.CharField(verbose_name='Название', max_length=255)
     slug = models.SlugField(unique=True)
     description = models.TextField(verbose_name='Описание', blank=True, null=True)
@@ -95,7 +97,7 @@ class Image(models.Model):
         return ''
 
 
-class Product(models.Model):
+class Product(MetaTagMixin):
     name = models.CharField(verbose_name='Название', max_length=255)
     description = models.TextField(verbose_name='Описание', blank=True, null=True)
     quantity = models.PositiveIntegerField(verbose_name='Количество', default=1)
