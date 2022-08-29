@@ -43,6 +43,11 @@
                         class="text-end">Контактні данні:</p></font></span>
                 <span style="font-family: 'Times New Roman';"><font color="#7fff00"><p
                         class="text-end">+380674893800</p></font></span>
+                {% if request.user.is_authenticated %}
+                    <p class="text-end">Привет {{ request.user.username}} (<a href="{% url 'logout' %}">Выйти</a>)</p>
+                {% else %}
+                    <p class="text-end"><a href="{% url 'login' %}?next={{ request.path }}">Войти</a></p>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -75,11 +80,11 @@
 </div>
 
 <div class="container">
-        {% block breadcrumbs %}
-        {% endblock %}
+    {% block breadcrumbs %}
+    {% endblock %}
 
-        {% block content %}
-        {% endblock %}
+    {% block content %}
+    {% endblock %}
 </div>
 
 </body>
