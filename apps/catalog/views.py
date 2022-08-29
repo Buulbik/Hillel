@@ -55,6 +55,14 @@ class ProductDetailView(DetailViewBreadcrumbsMixin):
         breadcrumbs = {reverse('catalog'): PAGE_NAMES['catalog']}
         category = self.object.main_category()
         if category:
+            if category.parent:
+                links = []
+                parent = category.parent
+                while parent is not None:
+                    links.append((reverse('category', args=[parent.slug]), parent.name))
+                    parent = parent.parent
+                for url, name in links[::-1]:
+                    breadcrumbs.update({url: name})
             breadcrumbs.update({reverse('category', args=[category.slug]): category.name})
         breadcrumbs.update({'current': self.object.name})
         return breadcrumbs
