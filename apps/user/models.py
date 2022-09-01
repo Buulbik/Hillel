@@ -24,6 +24,7 @@ class User(AbstractUser):
         format='JPEG',
         options={'quality': 100}
     )
+    about = models.TextField(verbose_name='О себе', null=True, blank=True)
 
     def image_tag_thumbnail(self):
         if self.image:
