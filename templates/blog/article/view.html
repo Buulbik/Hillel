@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block meta_tags %}
-    {% include '_meta_tags.html' with meta_title=article.get_meta_title meta_description=article.meta_description meta_keywords=article.meta_keywords%}
+    {% include '_meta_tags.html' with meta_title=article.get_meta_title meta_description=article.meta_description meta_keywords=article.meta_keywords %}
 {% endblock %}
 {% block breadcrumbs %}
     {% include '_breadcrumbs.html' %}
@@ -12,7 +12,7 @@
     {% endif %}
     <br>
     <br>
-    <pre>{{ article.text }}</pre>
+    <pre><span style="font-family: 'Times New Roman'">{{ article.text }}</span></pre>
     <p>
         {% for tag in article.tags.all %}
             <a href="{% url 'tag_list' tag_id=tag.id %}">#{{ tag.name }}</a>
