@@ -1,0 +1,33 @@
+{% load mathfilters %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Фото</th>
+        <th scope="col">Товар</th>
+        <th scope="col">Количество</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Сума</th>
+        <th scope="col">Удалить</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in cart.cart %}
+        <tr>
+            <td><a href="{% url 'product' pk=row.product.id %}"><img class="img-thumbnail" width="70"
+                                                                     src="{{ row.product.main_image.image_thumbnail.url }}"
+                                                                     alt=""></a></td>
+            <td><a href="{% url 'product' pk=row.product.id %}">{{ row.product.name }}</a></td>
+            <td>{{ row.quantity }}</td>
+            <td>{{ row.product.price }}</td>
+            <td>{{ row.product.price|mul:row.quantity }} грн.</td>
+            <td>
+                <button class="btn btn-danger">Удалить</button>
+            </td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="4" class="text-end"><b>Итого:</b></td>
+        <td colspan="2">{{ cart.total }} грн.</td>
+    </tr>
+    </tbody>
+</table>

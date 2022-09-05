@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3 class="my-header">Добавлено!</h3>
+    <p>Товар <a href="{% url 'product' pk=product.id %}">{{ product.name }}</a> добавлен в корзину</p>
+    {% include 'order/_cart.html' %}
+{% endblock %}
