@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-
+{% block breadcrumbs %}
+    {% include '_breadcrumbs.html' %}
+{% endblock %}
 {% block meta_tags %}
     {% include '_meta_tags.html' with meta_title='Оформление заказа' %}
 {% endblock %}
