@@ -4,4 +4,9 @@
     <h3 class="my-header">Добавлено!</h3>
     <p>Товар <a href="{% url 'product' pk=product.id %}">{{ product.name }}</a> добавлен в корзину</p>
     {% include 'order/_cart.html' %}
+    {% if cart.total %}
+    <p class="text-center">
+        <a href="{% url 'creat_order' %}" class="btn btn-info">Оформить заказ</a>
+    </p>
+    {% endif %}
 {% endblock %}

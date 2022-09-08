@@ -47,6 +47,7 @@
                 {% if product.quantity %}
                     {% if request.user.is_authenticated %}
                         <form action="{% url 'add_to_cart' %}" method="get">
+                            {% csrf_token %}
                             <input type="hidden" name="product" value="{{ product.id }}">
                             <div class="input-group mb-3">
                                 <input type="number" min="1" step="1" max="{{ product.quantity }}" value="1" class="form-control" name="quantity">
