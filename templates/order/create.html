@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block meta_tags %}
+    {% include '_meta_tags.html' with meta_title='Оформление заказа' %}
+{% endblock %}
+
+{% block content %}
+    <h3 class="my-header">Оформление заказа!</h3>
+    {% include 'order/_cart.html' %}
+
+    <div class="row">
+        <div class="col-sm-12 col-md-3"></div>
+        <div class="col-sm-12 col-md-6">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" value="{{ form.data.first_name }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Фамилия</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" required value="{{ form.data.last_name }}">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email" required value="{{ form.data.email }}">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Телефон</label>
+                    <input type="text" class="form-control" id="phone" name="phone" required value="{{ form.data.phone }}">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Адрес</label>
+                    <textarea name="address" id="address" class="form-control" rows="3">{{ form.data.address }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Комментарий</label>
+                    <textarea name="comment" id="comment" class="form-control" rows="3">{{ form.data.comment }}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Создать заказ</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
