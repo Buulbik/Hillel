@@ -8,6 +8,7 @@ from django.urls import reverse
 def user_login(request):
     error = None
     next_page = request.GET.get('next', reverse('home'))
+    breadcrumbs = {'current': 'Вход'}
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -23,7 +24,7 @@ def user_login(request):
                 error = 'Неправильные логин или пароль'
     else:
         form = LoginForm()
-    return render(request, 'user/login.html', {'form': form, 'error': error})
+    return render(request, 'user/login.html', {'form': form, 'error': error, 'breadcrumbs': breadcrumbs})
 
 
 def user_logout(request):
@@ -34,14 +35,15 @@ def user_logout(request):
 def user_register(request):
     error = None
     next_page = request.GET.get('next', reverse('home'))
+    breadcrumbs = {'current': 'Регистрация'}
     if request.method == 'POST':
         form = RegisterForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             user.save()
-            return render(request, 'user/welcome.html', {'user': user, 'next_page': next_page})
+            return render(request, 'user/welcome.html', {'user': user, 'next_page': next_page, 'breadcrumbs': breadcrumbs})
         error = form.errors
     else:
         form = RegisterForm()
-    return render(request, 'user/register.html', {'form': form, 'error': error})
+    return render(request, 'user/register.html', {'form': form, 'error': error, 'breadcrumbs': breadcrumbs})
