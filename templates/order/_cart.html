@@ -21,7 +21,7 @@
             <td>{{ row.product.price }}</td>
             <td>{{ row.product.price|mul:row.quantity }} грн.</td>
             <td>
-                <button class="btn btn-danger">Удалить</button>
+                <a href="{% url 'delete_from_cart' row_id=row.id%}" class="btn btn-danger">Удалить</a>
             </td>
         </tr>
     {% endfor %}
