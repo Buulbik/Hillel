@@ -13,6 +13,6 @@ urlpatterns = [
 
 router = DefaultRouter()
 router.register('product/image', ImageViewSet, basename='product_image')
-router.register('product/category', CategoryViewSet, basename='category_product')
+router.register('category', CategoryViewSet, basename='category_product')
 
 urlpatterns += router.urls
