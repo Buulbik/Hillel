@@ -37,7 +37,7 @@
                         {% if product.quantity >= 5 %}
                             <b class="text-success">В наличии</b>
                         {% else %}
-                            <b class="text-warning">Заканчивается</b>
+                            <b class="text-warning">Заканчивается ({{ product.quantity }})</b>
                         {% endif %}
                     {% else %}
                         <b class="text-danger">Нет наличии</b>
