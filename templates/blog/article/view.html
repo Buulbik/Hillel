@@ -7,29 +7,34 @@
 {% endblock %}
 {% block content %}
     <h1>{{ article.title }}</h1>
+    <p class="text-center">
     {% if article.image %}
-        <img class="img-thumbnail" src="{{ article.image.url }}" alt="">
-    {% endif %}
+        <img class="img-thumbnail" width="300" src="{{ article.image.url }}" alt="">
+    {% endif %}</p>
     <br>
     <br>
-    <pre><span style="font-family: 'Times New Roman'">{{ article.text }}</span></pre>
+    <p>{{ article.text|safe }}</p>
     <p>
         {% for tag in article.tags.all %}
             <a href="{% url 'tag_list' tag_id=tag.id %}">#{{ tag.name }}</a>
         {% endfor %}
 
     </p>
-    <hr>
+    {% if article.user %}
+        <div class="text-right">
+            <div class="author">
+                {% if article.user.image %}
+                    <span class="avatar">
+                        <img src="{{ article.user.image_thumbnail.url }}" alt="">
+                    </span>
+                {% endif %}
+                <span class="author-name">{{ article.user.first_name }} {{ article.user.last_name }}</span>
+            </div>
+        </div>
+    {% endif %}
+    <br>
     <p>
-        {% if article.user %}
-            <b>Автор</b>:
-            {% if user.image %}
-                <img class="img-thumbnail" src="{{ article.user.image_thumbnail.url }}" alt="">
-            {% endif %}
-            <b>{{ article.user.first_name }} {{ article.user.last_name }}</b>
-            <br>
-        {% endif %}
         <b>Дата</b>: {{ article.created_at }} <br>
-        <b>Категорія</b>: {{ category.name }} <br>
+        <b>Категория</b>: {{ category.name }} <br>
     </p>
 {% endblock %}
