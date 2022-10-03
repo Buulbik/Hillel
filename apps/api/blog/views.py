@@ -45,7 +45,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
         if getattr(instance, '_prefetched_objects_cache', None):
             instance._prefetched_objects_cache = {}
 
-        return Response(read_serializer.data)
+        return Response(read_serializer.data, status=status.HTTP_200_OK)
 
     def get_queryset(self):
         queryset = Article.objects.all()
