@@ -5,7 +5,7 @@
     "fields": {
       "name": "Контакты",
       "slug": "contacts",
-      "is_active": false
+      "is_active": true
     }
   }
 ]
