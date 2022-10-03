@@ -23,6 +23,30 @@ body{
     top: 3px;
     color: darkred;
 }
+.author{
+    height: 50px;
+    padding: 15px 0;
+    display: inline-block;
+    width: auto;
+}
+.author span{
+    float: left;
+}
+.avatar{
+    width: 50px;
+    border-radius: 100%;
+    overflow: hidden;
+    display: inline-block;
+}
+.avatar img{
+    width: 100%;
+}
+.author-name{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 15px;
+}
 .my-header{
     padding: 15px 0;
 }

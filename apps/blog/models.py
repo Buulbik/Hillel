@@ -6,6 +6,7 @@ from pilkit.processors import ResizeToFill
 from apps.main.mixins import MetaTagMixin
 from config.settings import MEDIA_ROOT
 from apps.user.models import User
+from tinymce.models import HTMLField
 
 
 class BlogCategory(MetaTagMixin):
@@ -64,7 +65,7 @@ class Article(MetaTagMixin):
     image = ProcessedImageField(
         verbose_name='Изображение',
         upload_to='blog/article/',
-        processors=[],
+        processors=[ResizeToFill(1920, 1080)],
         format='JPEG',
         options={'quality': 100},
         null=True
@@ -76,7 +77,7 @@ class Article(MetaTagMixin):
         options={'quality': 100}
     )
     text_preview = models.TextField(verbose_name='Текст-превью')
-    text = models.TextField(verbose_name='Текст')
+    text = HTMLField(verbose_name='Текст')
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата редактирования', auto_now=True)
     tags = models.ManyToManyField(Tag, verbose_name="Тэги", blank=True)

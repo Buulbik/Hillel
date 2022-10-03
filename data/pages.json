@@ -1,0 +1,20 @@
+[
+  {
+    "model": "main.page",
+    "pk": 1,
+    "fields": {
+      "name": "О нас",
+      "slug": "about",
+      "is_active": false
+    }
+  },
+  {
+    "model": "main.page",
+    "pk": 2,
+    "fields": {
+      "name": "Оплата и доставка",
+      "slug": "payment-and-shipping",
+      "is_active": false
+    }
+  }
+]
