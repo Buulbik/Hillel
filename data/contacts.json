@@ -5,6 +5,10 @@
     "fields": {
       "name": "Контакты",
       "slug": "contacts",
+      "text": "Контактні данні: +380674893800",
+      "meta_title": "Контакты",
+      "meta_description": "Наши контакты",
+      "meta_keywords": "Контакты",
       "is_active": true
     }
   }
