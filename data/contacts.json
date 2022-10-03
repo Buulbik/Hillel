@@ -1,0 +1,11 @@
+[
+  {
+    "model": "main.page",
+    "pk": 3,
+    "fields": {
+      "name": "Контакты",
+      "slug": "contacts",
+      "is_active": false
+    }
+  }
+]
