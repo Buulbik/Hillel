@@ -65,7 +65,7 @@ class Article(MetaTagMixin):
     image = ProcessedImageField(
         verbose_name='Изображение',
         upload_to='blog/article/',
-        processors=[ResizeToFill(1920, 1080)],
+        processors=[],
         format='JPEG',
         options={'quality': 100},
         null=True
