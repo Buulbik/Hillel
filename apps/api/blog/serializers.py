@@ -40,4 +40,3 @@ class ArticleWriteSerializer(serializers.ModelSerializer):
             'text',
             'tags',
         )
-
