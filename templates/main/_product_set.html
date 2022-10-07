@@ -1,0 +1,38 @@
+{% load static %}
+<div class="product-set">
+    <h4 class="product-set-name">{{ product_set.name }}</h4>
+    <div class="product-set-products psp-{{ product_set.id }} owl-theme owl-carousel">
+        {% for item in product_set.products.all %}
+                <div class="item product">
+                    <a href="{{ item.get_absolute_url }}">
+                        {% if item.main_image %}
+                            <img src="{{ item.main_image.image_thumbnail.url }}" alt="">
+                        {% else %}
+                            <img src="{% static 'no-image.png' %}" alt="">
+                        {% endif %}
+                        <b class="text-danger product-price">{{ item.price }} грн.</b>
+                        <p class="product-name">{{ item.name }}</p>
+                    </a>
+                </div>
+        {% endfor %}
+    </div>
+</div>
+<script>
+    $('.psp-{{ product_set.id }}').owlCarousel({
+    loop: true,
+    margin: 10,
+    //nav: true,
+    //autoplay: true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+})
+</script>
