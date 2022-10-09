@@ -29,7 +29,7 @@ def article_view(request, category_id, article_id):
     article_name = Article.objects.get(id=article_id)
     category_name = BlogCategory.objects.get(id=category_id)
     user = request.user
-    is_checked = Comment.is_checked
+    comments = Comment.objects.filter(article=article, is_checked=True)
     error = None
 
     if request.method == 'POST':
@@ -41,7 +41,7 @@ def article_view(request, category_id, article_id):
         form = CommentForm(request.POST)
         if form.is_valid():
             form.save()
-            return render('blog', {'breadcrumbs': {'current': 'Коментар створено'}, 'back': request.path})
+            return render(request, 'blog/article/_created_comment.html', {'breadcrumbs': {'current': 'Коментар створено'}, 'back': request.path})
         else:
             error = form.errors
     else:
@@ -52,7 +52,7 @@ def article_view(request, category_id, article_id):
     breadcrumbs.update({'current': article_name})
     return render(request, 'blog/article/view.html',
                   {'form': form, 'error': error, 'article': article, 'category': category,
-                   'breadcrumbs': breadcrumbs, 'is_checked': is_checked})
+                   'breadcrumbs': breadcrumbs, 'comments': comments})
 
 
 def tag_view(request, tag_id):
