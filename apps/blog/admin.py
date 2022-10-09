@@ -60,4 +60,5 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['id', 'user', 'name', 'article', 'is_checked']
+    list_display_links = ['id', 'user', 'name']

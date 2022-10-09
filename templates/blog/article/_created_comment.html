@@ -7,6 +7,6 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Спасибо за комментарий {{ form.data.name }}!</h1>
-    <a href="{% url "article_view" %}?next={{ next_page }}">Назад</a>
+    <h1>Спасибо за комментарий!</h1>
+    <a href="{{ back }}" class="btn btn-info">Назад</a>
 {% endblock %}
