@@ -37,4 +37,6 @@
         <b>Дата</b>: {{ article.created_at }} <br>
         <b>Категория</b>: {{ category.name }} <br>
     </p>
+    <p>Оставить комментарий</p>
+    {% include 'blog/article/_comments.html' %}
 {% endblock %}
