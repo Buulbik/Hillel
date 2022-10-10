@@ -32,15 +32,15 @@
             </div>
 
             <div class="col-xs-12 col-md-6">
-                <p>Наличие:
+                <p>Наявність:
                     {% if product.quantity %}
                         {% if product.quantity >= 5 %}
-                            <b class="text-success">В наличии</b>
+                            <b class="text-success">В наявності</b>
                         {% else %}
-                            <b class="text-warning">Заканчивается ({{ product.quantity }})</b>
+                            <b class="text-warning">Заканчується ({{ product.quantity }})</b>
                         {% endif %}
                     {% else %}
-                        <b class="text-danger">Нет наличии</b>
+                        <b class="text-danger">Немає в наявності</b>
                     {% endif %}
                 </p>
                 <b class="text-danger product-price">{{ product.price }} грн.</b>
@@ -51,17 +51,17 @@
                             <input type="hidden" name="product" value="{{ product.id }}">
                             <div class="input-group mb-3">
                                 <input type="number" min="1" step="1" max="{{ product.quantity }}" value="1" class="form-control" name="quantity">
-                                <button class="btn btn-success" type="submit" id="button-addon1">Купить</button>
+                                <button class="btn btn-success" type="submit" id="button-addon1">Купити</button>
                             </div>
                         </form>
                     {% else %}
-                        <div class="alert alert-info text-center">Делать покупки может только авторизированный пользователь</div>
+                        <div class="alert alert-info text-center">Робити покупки може тільки авторизований користувач</div>
                     {% endif %}
                 {% else %}
-                    <div class="alert alert-warning text-center">Товара нет в наличии</div>
+                    <div class="alert alert-warning text-center">Товара немає в наявності</div>
                 {% endif %}
                 <br>
-                <h4 class="text-center">Описание</h4>
+                <h4 class="text-center">Опис</h4>
                 <p>{{ product.description }}</p>
             </div>
 

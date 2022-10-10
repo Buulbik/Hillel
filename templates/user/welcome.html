@@ -6,6 +6,6 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Привет {{ user.username }}!</h1>
-    <p>Твой аккуант создан. Теперь ты можешь <a href="{% url "login" %}?next={{ next_page }}">войти</a>.</p>
+    <h1>Привіт {{ user.username }}!</h1>
+    <p>Твій обліковий запис створено. Тепер ти можеш <a href="{% url "login" %}?next={{ next_page }}">увійти!</a>.</p>
 {% endblock %}

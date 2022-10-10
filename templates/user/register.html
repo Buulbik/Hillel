@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block meta_tags %}
-    {% include '_meta_tags.html' with meta_title='Регистрация' %}
+    {% include '_meta_tags.html' with meta_title='Регістрація' %}
 {% endblock %}
 {% block breadcrumbs %}
     {% include '_breadcrumbs.html' %}
@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-3"></div>
         <div class="col-sm-12 col-md-6">
-            <h3 class="my-header">Зарегистрируйте аккаунт</h3>
+            <h3 class="my-header">Зареєструйте обліковий запис</h3>
             {% if error %}
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
@@ -18,7 +18,7 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label for="username" class="form-label">Логин</label>
+                    <label for="username" class="form-label">Логін</label>
                     <input type="text" class="form-control" id="username" name="username" required>
                 </div>
                 <div class="mb-3">
@@ -26,15 +26,15 @@
                     <input type="file" class="form-control" id="image" name="image" required>
                 </div>
                 <div class="mb-3">
-                    <label for="first_name" class="form-label">Имя</label>
+                    <label for="first_name" class="form-label">Ім'я</label>
                     <input type="text" class="form-control" id="first_name" name="first_name" required>
                 </div>
                 <div class="mb-3">
-                    <label for="last_name" class="form-label">Фамилия</label>
+                    <label for="last_name" class="form-label">Прізвище</label>
                     <input type="text" class="form-control" id="last_name" name="last_name" required>
                 </div>
                 <div class="mb-3">
-                    <label for="about" class="form-label">О себе</label>
+                    <label for="about" class="form-label">Про себе</label>
                     <textarea class="form-control" name="about" id="about" cols="30" rows="10"></textarea>
                 </div>
                 <div class="mb-3">
@@ -50,10 +50,10 @@
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password_confirm" class="form-label">Повторите пароль</label>
+                    <label for="password_confirm" class="form-label">Підтвердіть пароль</label>
                     <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                <button type="submit" class="btn btn-primary">Зареєструватись</button>
             </form>
         </div>
     </div>

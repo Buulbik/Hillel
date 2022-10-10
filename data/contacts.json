@@ -3,12 +3,12 @@
     "model": "main.page",
     "pk": 3,
     "fields": {
-      "name": "Контакты",
+      "name": "Контакти",
       "slug": "contacts",
       "text": "Контактні данні: +380636890583",
-      "meta_title": "Контакты",
-      "meta_description": "Наши контакты",
-      "meta_keywords": "Контакты",
+      "meta_title": "Контакти",
+      "meta_description": "Наші контакти",
+      "meta_keywords": "Контакти",
       "is_active": true
     }
   }

@@ -1,14 +1,14 @@
 {% for comment in comments %}
     <div class="comment">
         {% if comment.user %}
-            <p class="info">Comment by <b>{{ comment.user.username }}</b> {{ comment.created_at }}</p>
+            <p class="info">Коментар <b>{{ comment.user.first_name }}</b> {{ comment.created_at }}</p>
         {% else %}
-            <p class="info">Comment by <b>{{ comment.name }}</b> {{ comment.created_at }}</p>
+            <p class="info">Коментар <b>{{ comment.name }}</b> {{ comment.created_at }}</p>
         {% endif %}
         <p>{{ comment.text }}</p>
     </div>
 {% endfor %}
-<h3 class="my-header">Создание комментария</h3>
+<h3 class="my-header">Створення коментаря</h3>
 
 <div class="row">
     <div class="col-sm-12 col-md-3"></div>
@@ -22,12 +22,12 @@
             {% csrf_token %}
             {% if user.is_authenticated %}
                 <div class="mb-3">
-                    <label for="text" class="form-label">Комментарий</label>
+                    <label for="text" class="form-label">Ваш коментар:</label>
                     <textarea class="form-control" name="text" id="text" cols="30" rows="10"></textarea>
                 </div>
             {% else %}
                 <div class="mb-3">
-                    <label for="first_name" class="form-label">Имя</label>
+                    <label for="first_name" class="form-label">Ваше ім'я</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="mb-3">
@@ -35,11 +35,11 @@
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="mb-3">
-                    <label for="text" class="form-label">Комментарий</label>
+                    <label for="text" class="form-label">Ваш коментар:</label>
                     <textarea class="form-control" name="text" id="text" cols="30" rows="10"></textarea>
                 </div>
             {% endif %}
-            <button type="submit" class="btn btn-primary">Отправить комментарий</button>
+            <button type="submit" class="btn btn-primary">Відправити коментар</button>
         </form>
     </div>
 </div>

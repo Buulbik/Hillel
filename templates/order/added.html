@@ -3,15 +3,15 @@
     {% include '_breadcrumbs.html' %}
 {% endblock %}
 {% block meta_tags %}
-    {% include '_meta_tags.html' with meta_title='Успешное добавление заказа в корзину' %}
+    {% include '_meta_tags.html' with meta_title='Успішне додавання замовлення до кошика' %}
 {% endblock %}
 {% block content %}
-    <h3 class="my-header">Добавлено!</h3>
-    <p>Товар <a href="{% url 'product' pk=product.id %}">{{ product.name }}</a> добавлен в корзину</p>
+    <h3 class="my-header">Додано!</h3>
+    <p>Товар <a href="{% url 'product' pk=product.id %}">{{ product.name }}</a> додан у кошик</p>
     {% include 'order/_cart.html' %}
     {% if cart.total %}
     <p class="text-center">
-        <a href="{% url 'creat_order' %}" class="btn btn-info">Оформить заказ</a>
+        <a href="{% url 'creat_order' %}" class="btn btn-info">Оформити замовлення</a>
     </p>
     {% endif %}
 {% endblock %}
