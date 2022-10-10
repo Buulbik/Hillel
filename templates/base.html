@@ -48,10 +48,10 @@
                 <span style="font-family: 'Times New Roman';"><font color="#7fff00"><p
                         class="text-end">+380674893800</p></font></span>
                 {% if request.user.is_authenticated %}
-                    <p class="text-end">Привет {{ request.user.username }} (<a href="{% url 'logout' %}">Выйти</a>)</p>
+                    <p class="text-end">Привіт {{ request.user.username }} (<a href="{% url 'logout' %}">Вийти</a>)</p>
                 {% else %}
-                    <p class="text-end"><a href="{% url 'login' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.path }}{% endif %}">Войти</a>
-                        или <a href="{% url 'register' %}?next={{ request.path }}">Зарегистрироваться</a></p>
+                    <p class="text-end"><a href="{% url 'login' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.path }}{% endif %}">Увійти</a>
+                        или <a href="{% url 'register' %}?next={{ request.path }}">Зареєструватись</a></p>
                 {% endif %}
             </div>
         </div>
@@ -77,20 +77,20 @@
                                 <a class="nav-link" href="{% url 'catalog' %}">Каталог</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'page' slug='about' %}">О нас</a>
+                                <a class="nav-link" href="{% url 'page' slug='about' %}">Про нас</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'page' slug='payment-and-shipping' %}">Оплата и доставка</a>
+                                <a class="nav-link" href="{% url 'page' slug='payment-and-shipping' %}">Оплата і доставка</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'page' slug='contacts' %}">Контакты</a>
+                                <a class="nav-link" href="{% url 'page' slug='contacts' %}">Контакти</a>
                             </li>
                         </ul>
                     <div class="flex">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             {% if request.user.is_authenticated %}
                                 <li class="nav-item">
-                                            <a class="nav-link text-primary" aria-current="page" href="{% url 'cart_view' %}"><b>Корзина</b></a>
+                                            <a class="nav-link text-primary" aria-current="page" href="{% url 'cart_view' %}"><b>Кошик</b></a>
                                 </li>
                             {% endif %}
                         </ul>
@@ -118,7 +118,7 @@
                 <hr>
             </div>
             <div class="col">
-                <p class="text-center text-info">Все права защищены, правда неизвестно кем)</p>
+                <p class="text-center text-info">Усі права захищені, правда невідомо ким)</p>
             </div>
         </div>
     </div>

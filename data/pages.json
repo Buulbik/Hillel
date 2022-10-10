@@ -3,7 +3,7 @@
     "model": "main.page",
     "pk": 1,
     "fields": {
-      "name": "О нас",
+      "name": "Про нас",
       "slug": "about",
       "is_active": false
     }
@@ -12,7 +12,7 @@
     "model": "main.page",
     "pk": 2,
     "fields": {
-      "name": "Оплата и доставка",
+      "name": "Оплата і доставка",
       "slug": "payment-and-shipping",
       "is_active": false
     }

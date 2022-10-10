@@ -4,10 +4,10 @@
     <tr>
         <th scope="col">Фото</th>
         <th scope="col">Товар</th>
-        <th scope="col">Количество</th>
-        <th scope="col">Цена</th>
+        <th scope="col">Кількість</th>
+        <th scope="col">Ціна</th>
         <th scope="col">Сума</th>
-        <th scope="col">Удалить</th>
+        <th scope="col">Видалити</th>
     </tr>
     </thead>
     <tbody>
@@ -21,12 +21,12 @@
             <td>{{ row.product.price }}</td>
             <td>{{ row.product.price|mul:row.quantity }} грн.</td>
             <td>
-                <a href="{% url 'delete_from_cart' row_id=row.id%}" class="btn btn-danger">Удалить</a>
+                <a href="{% url 'delete_from_cart' row_id=row.id%}" class="btn btn-danger">Видалити</a>
             </td>
         </tr>
     {% endfor %}
     <tr>
-        <td colspan="4" class="text-end"><b>Итого:</b></td>
+        <td colspan="4" class="text-end"><b>Загальна сума:</b></td>
         <td colspan="2">{{ cart.total }} грн.</td>
     </tr>
     </tbody>

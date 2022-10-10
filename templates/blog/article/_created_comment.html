@@ -3,10 +3,13 @@
     {% include '_breadcrumbs.html' %}
 {% endblock %}
 {% block meta_tags %}
-    {% include '_meta_tags.html' with meta_title='Created comment' %}
+    {% include '_meta_tags.html' with meta_title='Успішне створення коментаря' %}
 {% endblock %}
 
 {% block content %}
-    <h1>Спасибо за комментарий!</h1>
-    <a href="{{ back }}" class="btn btn-info">Назад</a>
+    <center>
+        <h1>Дякуємо за ваш коментар!</h1>
+        <br>
+        <a href="{{ back }}" class="btn btn-info">Повернутись до статті</a>
+    </center>
 {% endblock %}

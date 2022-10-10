@@ -3,14 +3,14 @@
     {% include '_breadcrumbs.html' %}
 {% endblock %}
 {% block meta_tags %}
-    {% include '_meta_tags.html' with meta_title='Корзина' %}
+    {% include '_meta_tags.html' with meta_title='Кошик' %}
 {% endblock %}
 {% block content %}
-    <h3 class="my-header">Ваша корзина:</h3>
+    <h3 class="my-header">Ваш кошик:</h3>
     {% include 'order/_cart.html' %}
 {% if cart.total %}
     <p class="text-center">
-        <a href="{% url 'creat_order' %}" class="btn btn-info">Оформить заказ</a>
+        <a href="{% url 'creat_order' %}" class="btn btn-info">Оформити замовлення</a>
     </p>
 {% endif %}
 {% endblock %}
