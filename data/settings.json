@@ -1,0 +1,13 @@
+[
+  {
+    "model": "main.globalsetting",
+    "pk": 1,
+    "fields": {
+      "meta_title": "Главная страница",
+      "meta_description": "Главная страница",
+      "meta_keywords": "Главная страница",
+      "footer_text": "Все права защищены, правда неизвестно кем)",
+      "main_text": "Какой-то текст на главной странице"
+    }
+  }
+]
