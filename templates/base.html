@@ -35,7 +35,7 @@
             <div class="col-6">
                 <br>
                 <a href="{% url 'home' %}">
-                    <img src="{% static 'altenegro logo.png' %}" alt="Altenergo" title="Altenergo" id="logo">
+                    <img src="{{ SETTINGS.logo.url }}" alt="Altenergo" title="Altenergo" id="logo">
                 </a>
             </div>
             <div class="col-6">
@@ -118,7 +118,7 @@
                 <hr>
             </div>
             <div class="col">
-                <p class="text-center text-info">Усі права захищені, правда невідомо ким)</p>
+                <p class="text-center text-info">{{ SETTINGS.footer_text }}</p>
             </div>
         </div>
     </div>
