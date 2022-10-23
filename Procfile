@@ -1,0 +1,1 @@
+web: gunicorn Altenergo.wsgi --log-file -
