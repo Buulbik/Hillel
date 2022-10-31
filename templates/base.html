@@ -42,17 +42,17 @@
                 <br>
                 <p class="text-info text-end">ТОВ "Altenergo"</p>
                 <br>
-                <span style="font-family: 'Times New Roman';"><p style="color: red" class="text-end">Працюємо кожного дня з 10.00 до 18.00</p></span>
-                <span style="font-family: 'Times New Roman';"><font color="#7fff00"><p
-                        class="text-end">Контактні данні:</p></font></span>
-                <span style="font-family: 'Times New Roman';"><font color="#7fff00"><p
-                        class="text-end">+380674893800</p></font></span>
-                {% if request.user.is_authenticated %}
-                    <p class="text-end">Привіт {{ request.user.username }} (<a href="{% url 'logout' %}">Вийти</a>)</p>
-                {% else %}
-                    <p class="text-end"><a href="{% url 'login' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.path }}{% endif %}">Увійти</a>
-                        или <a href="{% url 'register' %}?next={{ request.path }}">Зареєструватись</a></p>
-                {% endif %}
+{#                <span style="font-family: 'Times New Roman';"><p style="color: red" class="text-end">Працюємо кожного дня з 10.00 до 18.00</p></span>#}
+{#                <span style="font-family: 'Times New Roman';"><font color="#7fff00"><p#}
+{#                        class="text-end">Контактні данні:</p></font></span>#}
+{#                <span style="font-family: 'Times New Roman';"><font color="#7fff00"><p#}
+{#                        class="text-end">+380674893800</p></font></span>#}
+{#                {% if request.user.is_authenticated %}#}
+{#                    <p class="text-end">Привіт {{ request.user.username }} (<a href="{% url 'logout' %}">Вийти</a>)</p>#}
+{#                {% else %}#}
+{#                    <p class="text-end"><a href="{% url 'login' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.path }}{% endif %}">Увійти</a>#}
+{#                        или <a href="{% url 'register' %}?next={{ request.path }}">Зареєструватись</a></p>#}
+{#                {% endif %}#}
             </div>
         </div>
     </div>
