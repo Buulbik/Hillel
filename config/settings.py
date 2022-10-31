@@ -95,15 +95,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'altenergo_store_db',
-        'USER': 'altenergo_store_db_user',
-        'PASSWORD': '1209',
-        'HOST': 'localhost',
+        'NAME': 'd2eonif5orp38a',
+        'USER': 'gfzorbdxrwlrgf',
+        'PASSWORD': 'e1298ca899644ade6e1cf3f268433544fdc4c9a373a8a533775891ce34518f67',
+        'HOST': 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
         'PORT': 5432
     }
 }
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
