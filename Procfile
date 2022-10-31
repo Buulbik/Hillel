@@ -1,1 +1,1 @@
-web: gunicorn Altenergo.wsgi --log-file -
+web: gunicorn config.wsgi
